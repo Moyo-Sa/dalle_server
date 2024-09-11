@@ -9,7 +9,27 @@ import dalleRoutes from './routes/dalleRoutes.js';
 dotenv.config();
 
 const app = express();
-app.use(cors());
+
+const allowedOrigins = [
+    'https://dalle-client-git-main-moyo-sas-projects.vercel.app',
+    'https://dalle-client-qsgd8lfah-moyo-sas-projects.vercel.app',
+    'https://dalle-client-qsgd8lfah-moyo-sas-projects.vercel.app/create-post'
+];
+
+const corsOptions = {
+    origin: function (origin, callback) {
+        // Allow requests with no origin, like mobile apps or curl requests
+        if (!origin) return callback(null, true);
+
+        if (allowedOrigins.includes(origin)) {
+            callback(null, true);
+        } else {
+            callback(new Error('Not allowed by CORS'));
+        }
+    }
+};
+
+app.use(cors(corsOptions));
 app.use(express.json({ limit: '50mb' }));
 
 app.use('/api/v1/post', postRoutes);
