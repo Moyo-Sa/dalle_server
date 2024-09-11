@@ -39,12 +39,12 @@ app.get('/', async (req, res) => {
   res.send('Hello from DALL.E!')
   });
 
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 8080;
 
 const startServer = async () => {
   try{
     connectDB(process.env.MONGODB_URL);
-    app.listen(PORT, console.log(`Server running in ${process.env.NODE_ENV} mode on port ${PORT}`.yellow.bold));
+    app.listen(PORT, console.log(`Server running on port ${PORT}`.yellow.bold));
   }catch(error){
     console.log(error);
   }
