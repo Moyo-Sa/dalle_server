@@ -13,7 +13,8 @@ const app = express();
 const allowedOrigins = [
     'https://dalle-client-git-main-moyo-sas-projects.vercel.app',
     'https://dalle-client-qsgd8lfah-moyo-sas-projects.vercel.app',
-    'https://dalle-client-qsgd8lfah-moyo-sas-projects.vercel.app/create-post'
+    'https://dalle-client-qsgd8lfah-moyo-sas-projects.vercel.app/create-post',
+    'https://dalle-client-git-main-moyo-sas-projects.vercel.app/create-post'
 ];
 
 const corsOptions = {
