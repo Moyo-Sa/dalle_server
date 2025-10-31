@@ -12,9 +12,10 @@ const app = express();
 
 // --- CORS Configuration ---
 const allowedOrigins = [
+  'https://dalle-client-3agbz4voi-moyo-sas-projects.vercel.app',
   'https://dalle-client-git-main-moyo-sas-projects.vercel.app',
-  'https://dalle-client-qsgd8lfah-moyo-sas-projects.vercel.app',
-  'https://dalle-client.vercel.app' // optional main deployment fallback
+  'https://dalle-client-moyo-sas-projects.vercel.app' 
+  'https://dalle-client-six.vercel.app'
 ];
 
 const corsOptions = {
