@@ -14,7 +14,7 @@ const app = express();
 const allowedOrigins = [
   'https://dalle-client-3agbz4voi-moyo-sas-projects.vercel.app',
   'https://dalle-client-git-main-moyo-sas-projects.vercel.app',
-  'https://dalle-client-moyo-sas-projects.vercel.app' 
+  'https://dalle-client-moyo-sas-projects.vercel.app', 
   'https://dalle-client-six.vercel.app'
 ];
 
