@@ -5,6 +5,7 @@ import color from 'colors';
 import connectDB from './mongodb/connect.js';
 import postRoutes from './routes/postRoutes.js';
 import dalleRoutes from './routes/dalleRoutes.js';
+import mongoose from "mongoose";
 
 dotenv.config();
 
@@ -66,3 +67,16 @@ const startServer = async () => {
 };
 
 startServer();
+
+
+// Keep MongoDB Atlas free tier awake - ping every 4 minutes
+setInterval(async () => {
+  try {
+    if (mongoose.connection.readyState === 1) {
+      await mongoose.connection.db.admin().ping();
+      console.log("MongoDB keepalive ping - " + new Date().toISOString());
+    }
+  } catch (err) {
+    console.error("Keepalive ping failed:", err.message);
+  }
+}, 4 * 60 * 1000);
